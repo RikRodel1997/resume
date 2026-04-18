@@ -1,0 +1,33 @@
+{
+  "name": "resume",
+  "private": true,
+  "version": "0.0.0",
+  "types": "types.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "check": "npx biome check",
+    "check:fix": "npx biome check --write",
+    "generate": "node --import tsx scripts/generate-pdf.jsx"
+  },
+  "dependencies": {
+    "@react-pdf/renderer": "^4.5.1",
+    "i18next": "^26.0.8",
+    "i18next-http-backend": "^3.0.6",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-i18next": "^17.0.4"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.4.12",
+    "@types/node": "^24.12.2",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "globals": "^17.4.0",
+    "typescript": "~6.0.2",
+    "vite": "^8.0.4",
+    "vitest": "^4.1.4"
+  }
+}

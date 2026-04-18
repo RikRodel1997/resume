@@ -1,0 +1,45 @@
+{
+  "$schema": "../../../translation.schema.json",
+  "contact.title": "Contact",
+  "skills.title": "Vaardigheden",
+  "languages.title": "Talen",
+  "experience.title": "Ervaring",
+  "education.title": "Opleiding",
+  "experience.current": "Huidig",
+  "personal": {
+    "name": "Jouw Naam",
+    "title": "Ontwikkelaar",
+    "email": "example@email.com",
+    "phone": "+31 612345678",
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://example.com/"
+      }
+    ]
+  },
+  "skills": [
+    {
+      "name": "AWS",
+      "level": "2 jaar professioneel"
+    },
+    {
+      "name": "TypeScript",
+      "level": "2 jaar professioneel"
+    },
+    {
+      "name": "Rust",
+      "level": "2 years niet-professioneel"
+    }
+  ],
+  "languages": [
+    {
+      "name": "Nederlands",
+      "level": "Moedertaal"
+    },
+    {
+      "name": "Engels",
+      "level": "Professioneel"
+    }
+  ]
+}

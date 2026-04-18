@@ -1,0 +1,153 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Translation",
+  "description": "Translation keys for UI labels",
+  "type": "object",
+  "required": [
+    "contact.title",
+    "skills.title",
+    "languages.title",
+    "experience.title",
+    "education.title",
+    "experience.current",
+    "personal",
+    "skills",
+    "languages",
+    "experience"
+  ],
+  "properties": {
+    "contact.title": {
+      "type": "string",
+      "description": "Label for the contact section"
+    },
+    "skills.title": {
+      "type": "string",
+      "description": "Label for the skills section"
+    },
+    "languages.title": {
+      "type": "string",
+      "description": "Label for the languages section"
+    },
+    "experience.title": {
+      "type": "string",
+      "description": "Label for the experience section"
+    },
+    "education.title": {
+      "type": "string",
+      "description": "Label for the education section"
+    },
+    "experience.current": {
+      "type": "string",
+      "description": "Text shown when employment is current (no end date)"
+    },
+    "personal": {
+      "type": "object",
+      "required": ["name", "title", "phone", "email", "links"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Your full name"
+        },
+        "title": {
+          "type": "string",
+          "description": "Your job title"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Your phone number with country code"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Your email address"
+        },
+        "links": {
+          "type": "array",
+          "description": "Additional links (GitHub, LinkedIn, portfolio, etc.)",
+          "items": {
+            "type": "object",
+            "required": ["label", "url"],
+            "properties": {
+              "label": {
+                "type": "string",
+                "description": "Display text for the link (e.g., 'GitHub', 'LinkedIn')"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "URL to the link"
+              }
+            }
+          }
+        }
+      }
+    },
+    "skills": {
+      "type": "array",
+      "description": "Skills and areas of expertise",
+      "items": {
+        "type": "object",
+        "required": ["name", "level"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the skill or expertise (e.g., 'TypeScript', 'REST APIs')"
+          },
+          "level": {
+            "type": "string",
+            "description": "Short summary on what kind of expertise you have (e.g. '1 year professionally')"
+          }
+        }
+      }
+    },
+    "languages": {
+      "type": "array",
+      "description": "Spoken languages",
+      "items": {
+        "type": "object",
+        "required": ["name", "level"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Language name (e.g. 'Dutch', 'English')"
+          },
+          "level": {
+            "type": "string",
+            "description": "Level of speaking the language (e.g. 'Basic', 'Professional')"
+          }
+        }
+      }
+    },
+    "experiences": {
+      "type": "array",
+      "description": "Work experiences",
+      "items": {
+        "type": "object",
+        "required": ["jobTitle", "company", "summary", "startDate"],
+        "properties": {
+          "jobTitle": {
+            "type": "string",
+            "description": "Position title held during the work"
+          },
+          "company": {
+            "type": "string",
+            "description": "The name of the company where the position was held"
+          },
+          "summary": {
+            "type": "string",
+            "description": "Short summary of performed activities or responsibilities"
+          },
+          "startDate": {
+            "type": "string",
+            "description": "Start date of the work positon"
+          },
+          "endDate": {
+            "type": "string",
+            "description": "End date of the position, optional. If not passed it is presumed this is the current position."
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

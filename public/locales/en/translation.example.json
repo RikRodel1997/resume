@@ -1,0 +1,53 @@
+{
+  "$schema": "../../../translation.schema.json",
+  "contact.title": "Contact",
+  "skills.title": "Skills",
+  "languages.title": "Languages",
+  "experience.title": "Experience",
+  "education.title": "Education",
+  "experience.current": "Current",
+  "personal": {
+    "name": "Your Name",
+    "title": "Software Developer",
+    "email": "test@example.com",
+    "phone": "+31 612345678",
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://example.com/"
+      }
+    ]
+  },
+  "skills": [
+    {
+      "name": "TypeScript",
+      "level": "2 years professionally"
+    },
+    {
+      "name": "Rust",
+      "level": "2 years not-professionally"
+    },
+    {
+      "name": "C#",
+      "level": "< 1 year not professionally"
+    }
+  ],
+  "languages": [
+    {
+      "name": "Nederlands",
+      "level": "Native"
+    },
+    {
+      "name": "Engels",
+      "level": "Professional"
+    }
+  ],
+  "experiences": [
+    {
+      "jobTitle": "Software Developer",
+      "company": "Company Name",
+      "summary": "What you did at this job...",
+      "startDate": "March 2025"
+    }
+  ]
+}
