@@ -1,29 +1,30 @@
-import { Document, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
+import type { CSSProperties } from "react";
 import { useTranslation } from "react-i18next";
 import Contact from "./components/Contact";
 import Experience, { type ExperienceProps } from "./components/Experience";
 import Language, { type LanguageProps } from "./components/Language";
 import Skill, { type SkillProps } from "./components/Skill";
 
-const styles = StyleSheet.create({
+const styles: Record<string, CSSProperties> = {
   page: {
+    display: "flex",
     flexDirection: "row",
-    padding: 0,
-    fontFamily: "Helvetica",
+    fontFamily: "Helvetica, Arial, sans-serif",
     fontSize: 10,
     lineHeight: 1.5,
+    color: "#000",
+    backgroundColor: "#fff",
   },
   sidebar: {
     width: "30%",
     backgroundColor: "#F0F0F0",
     padding: 15,
-    height: "100%",
     display: "flex",
     flexDirection: "column",
   },
-  sidebarHeader: { fontWeight: "bold", marginTop: 20, marginBottom: 5 },
+  sidebarHeader: { fontSize: 12, fontWeight: "bold", marginTop: 20, marginBottom: 5 },
   main: {
-    marginTop: 20,
+    paddingTop: 20,
     width: "70%",
     backgroundColor: "#FFFFFF",
     padding: 15,
@@ -34,17 +35,17 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: "bold",
     marginBottom: 10,
+    marginTop: 0,
   },
   sectionTitle: {
     fontSize: 12,
     fontWeight: "bold",
     marginTop: 20,
     marginBottom: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: "#000",
-    borderBottomStyle: "solid",
+    borderBottom: "1px solid #000",
+    paddingBottom: 4,
   },
-});
+};
 
 export default function Resume() {
   const { t } = useTranslation();
@@ -53,44 +54,43 @@ export default function Resume() {
   const experiences = t("experiences", { returnObjects: true }) as ExperienceProps[];
 
   return (
-    <Document>
-      <Page size="A4" style={styles.page}>
-        <View style={styles.sidebar}>
-          <Contact sidebarHeader={styles.sidebarHeader} />
-          <Text style={styles.sidebarHeader}>{t("skills.title")}</Text>
-          <View style={{ flexDirection: "column", flexWrap: "wrap", gap: 4 }}>
-            {skills.map(({ name, level }) => (
-              <Skill key={name} name={name} level={level} />
-            ))}
-          </View>
-
-          <Text style={styles.sidebarHeader}>{t("languages.title")}</Text>
-          <View style={{ flexDirection: "column", flexWrap: "wrap", gap: 4 }}>
-            {languages.map(({ name, level }) => (
-              <Language key={name} name={name} level={level} />
-            ))}
-          </View>
-        </View>
-
-        <View style={styles.main}>
-          <Text style={styles.name}>{t("personal.name")}</Text>
-          <Text style={{ fontSize: 14, color: "#444" }}>{t("personal.title")}</Text>
-
-          <Text style={styles.sectionTitle}>{t("experience.title")}</Text>
-          {experiences.map(({ jobTitle, company, summary, startDate, endDate }) => (
-            <Experience
-              key={`${jobTitle}${company}`}
-              jobTitle={jobTitle}
-              company={company}
-              summary={summary}
-              startDate={startDate}
-              endDate={endDate}
-            />
+    <div className="resume-page" style={styles.page}>
+      <div style={styles.sidebar}>
+        <Contact sidebarHeader={styles.sidebarHeader} />
+        <h3 style={styles.sidebarHeader}>{t("skills.title")}</h3>
+        <div style={{ display: "flex", flexDirection: "column", flexWrap: "wrap", gap: 4 }}>
+          {skills.map(({ name, level }) => (
+            <Skill key={name} name={name} level={level} />
           ))}
+        </div>
 
-          <Text style={styles.sectionTitle}>{t("education.title")}</Text>
-        </View>
-      </Page>
-    </Document>
+        <h3 style={styles.sidebarHeader}>{t("languages.title")}</h3>
+        <div style={{ display: "flex", flexDirection: "column", flexWrap: "wrap", gap: 4 }}>
+          {languages.map(({ name, level }) => (
+            <Language key={name} name={name} level={level} />
+          ))}
+        </div>
+      </div>
+
+      <div style={styles.main}>
+        <h1 style={styles.name}>{t("personal.name")}</h1>
+        <p style={{ fontSize: 14, color: "#444", margin: 0 }}>{t("personal.title")}</p>
+
+        <h2 style={styles.sectionTitle}>{t("experience.title")}</h2>
+        {experiences.map(({ jobTitle, company, summary, achievements, startDate, endDate }) => (
+          <Experience
+            key={`${jobTitle}${company}`}
+            jobTitle={jobTitle}
+            company={company}
+            summary={summary}
+            achievements={achievements}
+            startDate={startDate}
+            endDate={endDate}
+          />
+        ))}
+
+        <h2 style={styles.sectionTitle}>{t("education.title")}</h2>
+      </div>
+    </div>
   );
 }

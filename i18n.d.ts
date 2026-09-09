@@ -10,6 +10,7 @@ declare module "i18next" {
       "experience.title": string;
       "education.title": string;
       "experience.current": string;
+      "education.current": string;
       "personal": Personal;
       "skills": Skill;
     };

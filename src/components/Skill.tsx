@@ -1,5 +1,3 @@
-import { Text, View } from "@react-pdf/renderer";
-
 export type SkillProps = {
   name: string;
   level: string;
@@ -7,34 +5,35 @@ export type SkillProps = {
 
 export default function Skill({ name, level }: SkillProps) {
   return (
-    <View
-      key={name}
+    <div
       style={{
         backgroundColor: "#E5E7EB",
-        paddingHorizontal: 6,
-        paddingVertical: 4,
+        paddingLeft: 6,
+        paddingRight: 6,
+        paddingTop: 4,
+        paddingBottom: 4,
         borderRadius: 4,
+        display: "flex",
         flexDirection: "column",
         width: "100%",
       }}
     >
-      <Text
+      <span
         style={{
           fontSize: 9,
-          fontWeight: "black",
-          alignContent: "flex-start",
+          fontWeight: 900,
         }}
       >
         {name}
-      </Text>
-      <Text
+      </span>
+      <span
         style={{
           fontSize: 9,
-          alignContent: "flex-start",
+          marginLeft: 5,
         }}
       >
         {level}
-      </Text>
-    </View>
+      </span>
+    </div>
   );
 }

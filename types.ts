@@ -1,7 +1,7 @@
-import type { Style } from "@react-pdf/types";
+import type { CSSProperties } from "react";
 
 export type IconProps = {
-  style?: Style;
+  style?: CSSProperties;
 };
 
 export type ResumeLink = {
