@@ -8,7 +8,7 @@
   "experience.current": "Current",
   "personal": {
     "name": "Your Name",
-    "title": "Software Developer",
+    "title": "Back-end Developer",
     "email": "test@example.com",
     "phone": "+31 612345678",
     "links": [
@@ -44,7 +44,7 @@
   ],
   "experiences": [
     {
-      "jobTitle": "Software Developer",
+      "jobTitle": "Back-end Developer",
       "company": "Company Name",
       "summary": "What you did at this job...",
       "startDate": "March 2025"

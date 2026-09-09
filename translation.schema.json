@@ -10,10 +10,11 @@
     "experience.title",
     "education.title",
     "experience.current",
+    "education.current",
     "personal",
     "skills",
     "languages",
-    "experience"
+    "experiences"
   ],
   "properties": {
     "contact.title": {
@@ -39,6 +40,10 @@
     "experience.current": {
       "type": "string",
       "description": "Text shown when employment is current (no end date)"
+    },
+    "education.current": {
+      "type": "string",
+      "description": "Text shown when education is still ongoing"
     },
     "personal": {
       "type": "object",
@@ -136,6 +141,23 @@
           "summary": {
             "type": "string",
             "description": "Short summary of performed activities or responsibilities"
+          },
+          "achievements": {
+            "type": "array",
+            "description": "List of key achievements that were achieved at the position",
+            "items": {
+              "type": "object",
+              "properties": {
+                "summary": {
+                  "type": "string",
+                  "description": "Short summary of key achievement"
+                },
+                "details": {
+                  "type": "string",
+                  "description": "Details of key achievement"
+                }
+              }
+            }
           },
           "startDate": {
             "type": "string",

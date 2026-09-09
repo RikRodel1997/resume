@@ -27,7 +27,7 @@ Resume repository to build a resume in React and export to PDF.
 
 - Start dev server: `yarn dev`
 - Lint and format: `yarn check` and `yarn check:fix` to force fixes
-- Generate a PDF in the `output` directory: `yarn generate`
+- Generate a PDF: click "Print" in the app and save as PDF from the browser's print dialog
 
 ## Example
 

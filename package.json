@@ -8,16 +8,15 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "check": "npx biome check",
-    "check:fix": "npx biome check --write",
-    "generate": "node --import tsx scripts/generate-pdf.jsx"
+    "check:fix": "npx biome check --write"
   },
   "dependencies": {
-    "@react-pdf/renderer": "^4.5.1",
     "i18next": "^26.0.8",
     "i18next-http-backend": "^3.0.6",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "react-i18next": "^17.0.4"
+    "react-i18next": "^17.0.4",
+    "react-to-print": "^3.3.0"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.12",

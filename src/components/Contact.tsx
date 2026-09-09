@@ -1,16 +1,16 @@
-import { Link, StyleSheet, Text, View } from "@react-pdf/renderer";
-import type { Style } from "@react-pdf/types";
+import type { CSSProperties } from "react";
 import { useTranslation } from "react-i18next";
 import type { ResumeLink } from "@/types";
 import { Email, Link as LinkIcon, Phone } from "../icons";
 
-const styles = StyleSheet.create({
-  entry: { flexDirection: "row", marginRight: 10 },
-  icon: { marginRight: 5, width: 12, height: 12 },
-});
+const styles: Record<string, CSSProperties> = {
+  entry: { display: "flex", flexDirection: "row", alignItems: "center", marginBottom: 4 },
+  icon: { marginRight: 5, width: 12, height: 12, flexShrink: 0 },
+  link: { color: "inherit" },
+};
 
 interface ContactProps {
-  sidebarHeader: Style;
+  sidebarHeader: CSSProperties;
 }
 
 export default function Contact({ sidebarHeader }: ContactProps) {
@@ -19,20 +19,22 @@ export default function Contact({ sidebarHeader }: ContactProps) {
 
   return (
     <>
-      <Text style={sidebarHeader}>{t("contact.title")}</Text>
-      <View style={styles.entry}>
+      <h3 style={sidebarHeader}>{t("contact.title")}</h3>
+      <div style={styles.entry}>
         <Phone style={styles.icon} />
-        <Text>{t("personal.phone")}</Text>
-      </View>
-      <View style={styles.entry}>
+        <span>{t("personal.phone")}</span>
+      </div>
+      <div style={styles.entry}>
         <Email style={styles.icon} />
-        <Text>{t("personal.email")}</Text>
-      </View>
+        <span>{t("personal.email")}</span>
+      </div>
       {links.map((link) => (
-        <View key={link.url} style={styles.entry}>
+        <div key={link.url} style={styles.entry}>
           <LinkIcon style={styles.icon} />
-          <Link href={link.url}>{link.label}</Link>
-        </View>
+          <a href={link.url} style={styles.link} target="_blank" rel="noreferrer">
+            {link.label}
+          </a>
+        </div>
       ))}
     </>
   );
